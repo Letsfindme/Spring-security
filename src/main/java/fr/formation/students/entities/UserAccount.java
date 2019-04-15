@@ -16,11 +16,14 @@ public class UserAccount {
     @Column(nullable = false)
     private String password;
 
-    private String accountNonExpired;
+    @Column(nullable = false)
+    private boolean accountNonExpired = true;
 
-    private String accountNonLocked;
+    @Column(nullable = false)
+    private boolean accountNonLocked = true;
 
-    private String credentialsNonExpired;
+    @Column(nullable = false)
+    private boolean credentialsNonExpired = true;
 
     private String enabled;
 
@@ -44,27 +47,28 @@ public class UserAccount {
         this.password = password;
     }
 
-    public String getAccountNonExpired() {
+
+    public boolean isAccountNonExpired() {
         return accountNonExpired;
     }
 
-    public void setAccountNonExpired(String accountNonExpired) {
+    public void setAccountNonExpired(boolean accountNonExpired) {
         this.accountNonExpired = accountNonExpired;
     }
 
-    public String getAccountNonLocked() {
+    public boolean isAccountNonLocked() {
         return accountNonLocked;
     }
 
-    public void setAccountNonLocked(String accountNonLocked) {
+    public void setAccountNonLocked(boolean accountNonLocked) {
         this.accountNonLocked = accountNonLocked;
     }
 
-    public String getCredentialsNonExpired() {
+    public boolean isCredentialsNonExpired() {
         return credentialsNonExpired;
     }
 
-    public void setCredentialsNonExpired(String credentialsNonExpired) {
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
         this.credentialsNonExpired = credentialsNonExpired;
     }
 
@@ -89,9 +93,9 @@ public class UserAccount {
         return "UserAccount{" +
                 "userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
-                ", accountNonExpired='" + accountNonExpired + '\'' +
-                ", accountNonLocked='" + accountNonLocked + '\'' +
-                ", credentialsNonExpired='" + credentialsNonExpired + '\'' +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
                 ", enabled='" + enabled + '\'' +
                 ", role=" + role +
                 '}';

@@ -1,18 +1,11 @@
 package fr.formation.students.dtos;
 
-import fr.formation.students.entities.UserAccount;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 
 public class UserDto {
@@ -28,8 +21,7 @@ public class UserDto {
      @NotNull
      private LocalDate birthDate;
 
-     @NotNull
-     private UserAccountDto userAccount;
+
 
      public String getFirstName() {
           return firstName;
@@ -55,13 +47,7 @@ public class UserDto {
           this.birthDate = birthDate;
      }
 
-     public UserAccountDto getUserAccount() {
-          return userAccount;
-     }
 
-     public void setUserAccount(UserAccountDto userAccount) {
-          this.userAccount = userAccount;
-     }
 
      @Override
      public String toString() {
@@ -69,7 +55,6 @@ public class UserDto {
                   "firstName='" + firstName + '\'' +
                   ", lastName='" + lastName + '\'' +
                   ", birthDate=" + birthDate +
-                  ", userAccount=" + userAccount +
                   '}';
      }
 }
