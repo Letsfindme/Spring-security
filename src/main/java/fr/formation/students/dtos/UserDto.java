@@ -1,5 +1,6 @@
 package fr.formation.students.dtos;
 
+import fr.formation.students.entities.UserAccount;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +29,7 @@ public class UserDto {
      private LocalDate birthDate;
 
      @NotNull
-     private boolean active;
+     private UserAccountDto userAccount;
 
      public String getFirstName() {
           return firstName;
@@ -54,22 +55,21 @@ public class UserDto {
           this.birthDate = birthDate;
      }
 
-     public boolean isActive() {
-          return active;
+     public UserAccountDto getUserAccount() {
+          return userAccount;
      }
 
-     public void setActive(boolean active) {
-          this.active = active;
+     public void setUserAccount(UserAccountDto userAccount) {
+          this.userAccount = userAccount;
      }
 
      @Override
-    public String toString() {
-        return "UserDto{" +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthDate=" + birthDate +
-                ", active=" + active +
-                '}';
-    }
-
+     public String toString() {
+          return "UserDto{" +
+                  "firstName='" + firstName + '\'' +
+                  ", lastName='" + lastName + '\'' +
+                  ", birthDate=" + birthDate +
+                  ", userAccount=" + userAccount +
+                  '}';
+     }
 }
