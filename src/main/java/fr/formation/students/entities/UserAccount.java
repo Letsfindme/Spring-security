@@ -2,10 +2,7 @@ package fr.formation.students.entities;
 
 import fr.formation.students.enumeration.Role;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 @Embeddable
 public class UserAccount {
@@ -16,6 +13,7 @@ public class UserAccount {
     @Column(nullable = false)
     private String password;
 
+    @Convert(converter = BooleanConverter.class)
     @Column(nullable = false)
     private boolean accountNonExpired = true;
 
