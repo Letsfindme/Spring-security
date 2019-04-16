@@ -1,13 +1,11 @@
 package fr.formation.students.controller;
 
-import fr.formation.students.entities.ApiError;
 import fr.formation.students.entities.ApiErrors;
 import fr.formation.students.entities.ValidationError;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
