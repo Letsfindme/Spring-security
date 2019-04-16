@@ -13,14 +13,16 @@ public class UserAccount {
     @Column(nullable = false)
     private String password;
 
-    @Convert(converter = BooleanConverter.class)
     @Column(nullable = false)
+    @Convert(converter = BooleanConverter.class)
     private boolean accountNonExpired = true;
 
     @Column(nullable = false)
+    @Convert(converter = BooleanConverter.class)
     private boolean accountNonLocked = true;
 
     @Column(nullable = false)
+    @Convert(converter = BooleanConverter.class)
     private boolean credentialsNonExpired = true;
 
     private String enabled;
