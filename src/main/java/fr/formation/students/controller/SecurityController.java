@@ -1,7 +1,5 @@
 package fr.formation.students.controller;
 
-import java.security.Principal;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,6 +26,7 @@ public class SecurityController {
      */
     @GetMapping("/me")
     protected User me() {
+        System.out.println("/me   ______  je suis la");
 	return (User) SecurityContextHolder.getContext()
 		.getAuthentication().getPrincipal();
     }
@@ -36,12 +35,12 @@ public class SecurityController {
      * Redirecting endpoint for authentication flow. Invoked in case of bad
      * credentials provided.
      *
-     * @return a Json serialized {@code BadCredentialsError}; never {@code null}
+     * @return a Json serialized {@code SecurityError}; never {@code null}
      */
     @RequestMapping("/authError")
     // No security, anybody can create an account (see SecurityConfig)
     protected ResponseEntity<Object> authError() {
-	HttpStatus status = HttpStatus.BAD_REQUEST;
+	HttpStatus status = HttpStatus.FORBIDDEN;
 	return new ResponseEntity<>(SecurityError.of(status, "Bad credentials"),
 		status);
     }
@@ -67,7 +66,8 @@ public class SecurityController {
     @RequestMapping("/login")
     // No security, anybody can create an account (see SecurityConfig)
     protected ResponseEntity<Object> login() {
-	HttpStatus status = HttpStatus.UNAUTHORIZED;
+        System.out.println("/login-------------------- hello fadi");
+	    HttpStatus status = HttpStatus.UNAUTHORIZED;
 	return new ResponseEntity<>(SecurityError.of(status, "Unauthorized"),
 		status);
     }
