@@ -15,7 +15,7 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
-    show-sql: true
+    show-sql: false
     generate-ddl: false
     hibernate:
        ddl-auto: none

@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -27,6 +26,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println("load user by user name "+ username);
         Person person = repo.findByUserAccountUsername(username);
         if (person == null){
             throw new UsernameNotFoundException("with username: " + username);
@@ -47,6 +47,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
                 userAccount.isAccountNonLocked(),
                 authorities
         );
+        //System.out.println("user builer ______-----------"+ userToReturn.toString());
         return userToReturn;
     }
 

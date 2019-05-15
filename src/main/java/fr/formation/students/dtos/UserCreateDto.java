@@ -14,4 +14,11 @@ public class UserCreateDto extends UserDto {
     public void setUserAccount(UserAccountDto userAccount) {
         this.userAccount = userAccount;
     }
+
+    @Override
+    public String toString() {
+        return "UserCreateDto{" +
+                "userAccount=" + userAccount +
+                '}';
+    }
 }
